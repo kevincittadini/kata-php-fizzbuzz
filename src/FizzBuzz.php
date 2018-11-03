@@ -12,11 +12,9 @@ class FizzBuzz
      */
     public function doMany(array $numbers): string
     {
-        $result = [];
-
-        foreach ($numbers as $number) {
-            $result[] = $this->do($number);
-        }
+        $result = array_map(function ($number) {
+            return $this->do($number);
+        }, $numbers);
 
         return implode(', ', $result);
     }
